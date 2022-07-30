@@ -11,4 +11,4 @@ D -> RIGHT
 
 R -> RESET
 
-E -> EXIT
+E OR ESC-> EXIT
