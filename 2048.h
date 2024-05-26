@@ -30,6 +30,7 @@ void clear_screen();
 #ifdef __linux__
     int getch();
 #endif
+void swap(int* a,int* b);
 
 int score;
 int map[size][size];

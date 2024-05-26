@@ -122,9 +122,7 @@ void up() {
       if (map[i][j] == 0) {
         for (int k = i + 1; k < size; k++) {
           if (map[k][j] != 0) {
-            int temp = map[k][j];
-            map[k][j] = map[i][j];
-            map[i][j] = temp;
+            swap(&map[k][j] , &map[i][j]);
             break;
           }
         }
@@ -141,9 +139,7 @@ void up() {
       if (map[i][j] == 0) {
         for (int k = i + 1; k < size; k++) {
           if (map[k][j] != 0) {
-            int temp = map[k][j];
-            map[k][j] = map[i][j];
-            map[i][j] = temp;
+            swap(&map[k][j] , &map[i][j]);
             break;
           }
         }
@@ -157,9 +153,7 @@ void down() {
       if (map[i][j] == 0) {
         for (int k = i - 1; k > -1; k--) {
           if (map[k][j] != 0) {
-            int temp = map[k][j];
-            map[k][j] = map[i][j];
-            map[i][j] = temp;
+            swap(&map[k][j] , &map[i][j]);
             break;
           }
         }
@@ -176,9 +170,7 @@ void down() {
       if (map[i][j] == 0) {
         for (int k = i - 1; k > -1; k--) {
           if (map[k][j] != 0) {
-            int temp = map[k][j];
-            map[k][j] = map[i][j];
-            map[i][j] = temp;
+            swap(&map[k][j] , &map[i][j]);
             break;
           }
         }
@@ -192,9 +184,7 @@ void left() {
       if (map[i][j] == 0) {
         for (int l = j + 1; l < size; l++) {
           if (map[i][l] != 0) {
-            int temp = map[i][l];
-            map[i][l] = map[i][j];
-            map[i][j] = temp;
+            swap(&map[i][l] , &map[i][j]);
             break;
           }
         }
@@ -211,9 +201,7 @@ void left() {
       if (map[i][j] == 0) {
         for (int l = j + 1; l < size; l++) {
           if (map[i][l] != 0) {
-            int temp = map[i][l];
-            map[i][l] = map[i][j];
-            map[i][j] = temp;
+            swap(&map[i][l] , &map[i][j]);
             break;
           }
         }
@@ -227,9 +215,7 @@ void right() {
       if (map[i][j] == 0) {
         for (int l = j - 1; l > -1; l--) {
           if (map[i][l] != 0) {
-            int temp = map[i][l];
-            map[i][l] = map[i][j];
-            map[i][j] = temp;
+            swap(&map[i][l] , &map[i][j]);
             break;
           }
         }
@@ -246,9 +232,7 @@ void right() {
       if (map[i][j] == 0) {
         for (int l = j - 1; l > -1; l--) {
           if (map[i][l] != 0) {
-            int temp = map[i][l];
-            map[i][l] = map[i][j];
-            map[i][j] = temp;
+            swap(&map[i][l] , &map[i][j]);
             break;
           }
         }
@@ -274,4 +258,11 @@ int check() {
     }
   }
   return -1;
+}
+
+void swap(int* a,int* b)
+{
+  int temp = *a;
+  *a = *b;
+  *b = temp;
 }
