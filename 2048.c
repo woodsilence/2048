@@ -100,20 +100,13 @@ void print_map() {
     printf("+----+----+----+----+\n");
     printf("|");
     for (int j = 0; j < size; j++) {
-      if(map[i][j] < 10)
-      {
+      if (map[i][j] < 10) {
         printf("  %d ", map[i][j]);
-      }
-      else if(map[i][j] < 100)
-      {
+      } else if (map[i][j] < 100) {
         printf(" %d ", map[i][j]);
-      }
-      else if(map[i][j] < 1000)
-      {
+      } else if (map[i][j] < 1000) {
         printf(" %d", map[i][j]);
-      }
-      else 
-      {
+      } else {
         printf("%d", map[i][j]);
       }
       printf("|");
