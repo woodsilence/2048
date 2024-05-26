@@ -12,4 +12,4 @@ D -> RIGHT
 
 R -> RESET
 
-E OR ESC-> EXIT
+ESC-> EXIT

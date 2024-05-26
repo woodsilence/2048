@@ -1,59 +1,61 @@
-#include<stdio.h>
-#include<conio.h>
-#include<time.h>
-#include<stdlib.h>
 
-#define size 4
+#include "2048.h"
+
+#ifdef __linux__
+    int getch() {
+        struct termios oldt, newt;
+        int ch;
+        tcgetattr(STDIN_FILENO, &oldt);
+        newt = oldt;
+        newt.c_lflag &= ~(ICANON | ECHO);
+        tcsetattr(STDIN_FILENO, TCSANOW, &newt);
+        ch = getchar();
+        tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
+        return ch;
+    }
+#endif
 
 
-int map[size][size] = {
-    0,2,2,2,
-    2,2,2,0,
-    2,2,4,0,
-    0,2,0,0
-};
-int score = 0;
 
-void initmap();
-void randomap();
-void printmap();
-void maingame();
+void clear_screen() {
+    #ifdef _WIN32
+        system("cls");
+    #else
+        system("clear");
+    #endif
+}
 
-int gameover();
-int check();
 
-void up();
-void down();
-void right();
-void left();
-void reset();
 
 int main(){
-    maingame();
+    main_game();
+    
     return 0;
 }
 
 
-void maingame(){
+void main_game(){
     
-    initmap();
+    init_map();
 
     int gameshouldclose = 0;
     
     while(!gameshouldclose){
-        system("cls");
-        printmap();
+        clear_screen();
+        print_map();
         int key = getch();
         if(key == 224 ) key = getch();
-        if(key == 27) gameshouldclose = 1;
+        if(key == 27 || key == 101) break;
         else if(key == 72 || key == 119) up();
         else if(key == 80 || key == 115) down();
         else if(key == 75 || key == 97) left();
         else if(key == 77 || key == 100) right();
         else if(key == 114) reset();
-        if(check() == 0) randomap();
-        else if(check() == 1) continue;
-        else gameshouldclose = gameover();
+        else continue;
+        
+        int res = check();
+        if(res == 0) random_map();
+        else if(res == -1) gameshouldclose = gameover();
     }
 }
 int gameover(){
@@ -70,15 +72,15 @@ int gameover(){
     }
     return -1;
 }
-void initmap(){
+void init_map(){
     for(int i = 0 ; i < size ; i++){
         for(int j = 0 ; j < size ; j++){
             map[i][j] = 0;
         }
     }
-    randomap();
+    random_map();
 }
-void randomap(){
+void random_map(){
     int i,j;
     srand(time(NULL));
     do{
@@ -87,7 +89,7 @@ void randomap(){
     }while(map[i][j] != 0);
     map[i][j]= 2 ;
 }
-void printmap()
+void print_map()
 {
     printf(" SCORE: %d\n" , score);
     for(int i = 0 ; i < size ; i++){
@@ -239,7 +241,7 @@ void right(){
     }
 }
 void reset(){
-    initmap();
+    init_map();
     score = 0;
 }
 int check(){
