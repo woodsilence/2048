@@ -122,7 +122,7 @@ void up() {
       if (map[i][j] == 0) {
         for (int k = i + 1; k < size; k++) {
           if (map[k][j] != 0) {
-            swap(&map[k][j] , &map[i][j]);
+            swap(&map[k][j], &map[i][j]);
             break;
           }
         }
@@ -139,7 +139,7 @@ void up() {
       if (map[i][j] == 0) {
         for (int k = i + 1; k < size; k++) {
           if (map[k][j] != 0) {
-            swap(&map[k][j] , &map[i][j]);
+            swap(&map[k][j], &map[i][j]);
             break;
           }
         }
@@ -153,7 +153,7 @@ void down() {
       if (map[i][j] == 0) {
         for (int k = i - 1; k > -1; k--) {
           if (map[k][j] != 0) {
-            swap(&map[k][j] , &map[i][j]);
+            swap(&map[k][j], &map[i][j]);
             break;
           }
         }
@@ -170,7 +170,7 @@ void down() {
       if (map[i][j] == 0) {
         for (int k = i - 1; k > -1; k--) {
           if (map[k][j] != 0) {
-            swap(&map[k][j] , &map[i][j]);
+            swap(&map[k][j], &map[i][j]);
             break;
           }
         }
@@ -184,7 +184,7 @@ void left() {
       if (map[i][j] == 0) {
         for (int l = j + 1; l < size; l++) {
           if (map[i][l] != 0) {
-            swap(&map[i][l] , &map[i][j]);
+            swap(&map[i][l], &map[i][j]);
             break;
           }
         }
@@ -201,7 +201,7 @@ void left() {
       if (map[i][j] == 0) {
         for (int l = j + 1; l < size; l++) {
           if (map[i][l] != 0) {
-            swap(&map[i][l] , &map[i][j]);
+            swap(&map[i][l], &map[i][j]);
             break;
           }
         }
@@ -215,7 +215,7 @@ void right() {
       if (map[i][j] == 0) {
         for (int l = j - 1; l > -1; l--) {
           if (map[i][l] != 0) {
-            swap(&map[i][l] , &map[i][j]);
+            swap(&map[i][l], &map[i][j]);
             break;
           }
         }
@@ -232,7 +232,7 @@ void right() {
       if (map[i][j] == 0) {
         for (int l = j - 1; l > -1; l--) {
           if (map[i][l] != 0) {
-            swap(&map[i][l] , &map[i][j]);
+            swap(&map[i][l], &map[i][j]);
             break;
           }
         }
@@ -260,8 +260,7 @@ int check() {
   return -1;
 }
 
-void swap(int* a,int* b)
-{
+void swap(int *a, int *b) {
   int temp = *a;
   *a = *b;
   *b = temp;
