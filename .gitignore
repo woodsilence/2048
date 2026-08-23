@@ -1,3 +1,2 @@
 .vscode
-cgame
-*.o
+build

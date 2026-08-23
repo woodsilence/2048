@@ -291,3 +291,8 @@ void swap(int *a, int *b) {
   *a = *b;
   *b = temp;
 }
+
+int main() {
+  c2048();
+  return 0;
+}

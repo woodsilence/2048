@@ -1,9 +1,10 @@
 
-typedef struct SnakeNode {
+struct SnakeNode {
   int x;
   int y;
   SnakeNode *next;
-} SnakeNode;
+};
+
 
 enum Operation { MoveLeft, MoveRight, MoveUp, MoveDown , Quit , Restart , Pause };
 
